@@ -9,6 +9,11 @@
 *Desarrollo de Aplicaciones Web*
 
 *Curso:2023-2024*
+## Índice 
+- [Introducción](#introducción)
+- [Finalidad](#finalidad)
+- [Medios necesarios](#medios-necesarios)
+- [Planificación](#planificación)
 
 ## Introducción
 
@@ -85,7 +90,7 @@ Para el desarrollo de la aplicación vamos a necesitar lo siguiente:
 - Diseño de estilos
 #### Semana 7:
 - Añadir sección de licencias en cada una de las canciones
-### Fase 3: Pruebas y Hosting (Semana 8-9 )
+### Fase 3: Pruebas y Hosting (Semana 8-9)
 #### Semana 8:
 - Pruebas de cada uno de las funcionalidades de la aplicación para comprobar su funcionamiento
 - Correción de los errores encontrados durante las pruebas
