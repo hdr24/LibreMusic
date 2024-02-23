@@ -1,0 +1,6 @@
+register: Register
+username: Username
+email: E-mail
+password: Password
+terms: I agree with the terms
+reg-button: Register

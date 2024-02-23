@@ -1,0 +1,6 @@
+username: Nombre de usuario
+password: Contraseña
+sign-in: Por favor, inicie sesión
+sign-button: Iniciar sesión
+logged: Ya estás logeado como {user}, <a href="{logout}">cerrar sesión</a>
+error: Credenciales inválidas

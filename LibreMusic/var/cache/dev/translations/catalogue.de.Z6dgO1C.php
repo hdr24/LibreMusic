@@ -532,6 +532,12 @@ $catalogueEn = new MessageCatalogue('en', array (
     'autocomplete.no-more-results' => 'No more results',
     'autocomplete.loading-more-results' => 'Loading more results…',
   ),
+  'login' => 
+  array (
+    'username' => 'Username',
+    'password' => 'Password',
+    'sign-in' => 'Please, Log in',
+  ),
 ));
 $catalogue->addFallbackCatalogue($catalogueEn);
 

@@ -266,6 +266,24 @@ $catalogue = new MessageCatalogue('es', array (
     'autocomplete.no-more-results' => 'No hay más resultados',
     'autocomplete.loading-more-results' => 'Cargando más resultados…',
   ),
+  'login' => 
+  array (
+    'username' => 'Nombre de usuario',
+    'password' => 'Contraseña',
+    'sign-in' => 'Por favor, inicie sesión',
+    'sign-button' => 'Iniciar sesión',
+    'logged' => 'Ya estás logeado como {user}, <a href="{logout}">cerrar sesión</a>',
+    'error' => 'Credenciales inválidas',
+  ),
+  'register' => 
+  array (
+    'register' => 'Registro',
+    'username' => 'Nombre de usuario',
+    'email' => 'Correo',
+    'password' => 'Contraseña',
+    'terms' => 'Estoy de acuerdo con los terminos de uso',
+    'reg-button' => 'Registrarse',
+  ),
 ));
 
 $catalogueEn = new MessageCatalogue('en', array (
@@ -531,6 +549,24 @@ $catalogueEn = new MessageCatalogue('en', array (
     'autocomplete.no-results-found' => 'No results found',
     'autocomplete.no-more-results' => 'No more results',
     'autocomplete.loading-more-results' => 'Loading more results…',
+  ),
+  'login' => 
+  array (
+    'username' => 'Username',
+    'password' => 'Password',
+    'sign-in' => 'Please, Log in',
+    'sign-button' => 'Log In',
+    'logged' => 'You are logged in as {user}, <a href="{logout}">Logout</a>',
+    'error' => 'Invalid credentials',
+  ),
+  'register' => 
+  array (
+    'register' => 'Register',
+    'username' => 'Username',
+    'email' => 'E-mail',
+    'password' => 'Password',
+    'terms' => 'I agree with the terms',
+    'reg-button' => 'Register',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueEn);

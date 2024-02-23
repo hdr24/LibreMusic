@@ -4,12 +4,12 @@
 
 return [
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], [], []],
-    'admin' => [[], ['_controller' => 'App\\Controller\\Admin\\DashboardController::index'], [], [['text', '/admin']], [], [], []],
-    'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], [], []],
-    'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
+    'admin' => [['_locale'], ['_controller' => 'App\\Controller\\Admin\\DashboardController::index'], ['_locale' => 'en|fr|es'], [['text', '/admin'], ['variable', '/', 'en|fr|es', '_locale', true]], [], [], []],
+    'app_register' => [['_locale'], ['_controller' => 'App\\Controller\\RegistrationController::register'], ['_locale' => 'en|fr|es'], [['text', '/register'], ['variable', '/', 'en|fr|es', '_locale', true]], [], [], []],
+    'app_login' => [['_locale'], ['_controller' => 'App\\Controller\\SecurityController::login'], ['_locale' => 'en|fr|es'], [['text', '/login'], ['variable', '/', 'en|fr|es', '_locale', true]], [], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
-    'App\Controller\Admin\DashboardController::index' => [[], ['_controller' => 'App\\Controller\\Admin\\DashboardController::index'], [], [['text', '/admin']], [], [], []],
-    'App\Controller\RegistrationController::register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], [], []],
-    'App\Controller\SecurityController::login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
+    'App\Controller\Admin\DashboardController::index' => [['_locale'], ['_controller' => 'App\\Controller\\Admin\\DashboardController::index'], ['_locale' => 'en|fr|es'], [['text', '/admin'], ['variable', '/', 'en|fr|es', '_locale', true]], [], [], []],
+    'App\Controller\RegistrationController::register' => [['_locale'], ['_controller' => 'App\\Controller\\RegistrationController::register'], ['_locale' => 'en|fr|es'], [['text', '/register'], ['variable', '/', 'en|fr|es', '_locale', true]], [], [], []],
+    'App\Controller\SecurityController::login' => [['_locale'], ['_controller' => 'App\\Controller\\SecurityController::login'], ['_locale' => 'en|fr|es'], [['text', '/login'], ['variable', '/', 'en|fr|es', '_locale', true]], [], [], []],
     'App\Controller\SecurityController::logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
 ];

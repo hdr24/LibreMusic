@@ -442,6 +442,7 @@ class ComposerStaticInit90f15d0df8433d284f9bf1b0f6f9c793
         'NumberFormatter' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/NumberFormatter.php',
         'Override' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/Override.php',
         'SQLite3Exception' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/SQLite3Exception.php',
+        'fab2s\\Utf8\\Utf8' => __DIR__ . '/..' . '/fab2s/utf8/src/Utf8.php',
         '©' => __DIR__ . '/..' . '/symfony/cache/Traits/ValueWrapper.php',
     );
 

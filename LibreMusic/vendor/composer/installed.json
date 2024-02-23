@@ -1359,6 +1359,67 @@
             "install-path": "../easycorp/easyadmin-bundle"
         },
         {
+            "name": "fab2s/utf8",
+            "version": "1.0.1",
+            "version_normalized": "1.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fab2s/Utf8.git",
+                "reference": "0f19428e0d118d2e866a978793776e39bd0676ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fab2s/Utf8/zipball/0f19428e0d118d2e866a978793776e39bd0676ef",
+                "reference": "0f19428e0d118d2e866a978793776e39bd0676ef",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~7.0|~8.0"
+            },
+            "suggest": {
+                "ext-intl": "To use Utf8 Normalization"
+            },
+            "time": "2021-06-16T09:31:33+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabrice de Stefanis"
+                }
+            ],
+            "description": "A purely static UTF8 Helper based on mb_string and ext-intl",
+            "keywords": [
+                "Simple",
+                "helper",
+                "intl",
+                "mb_string",
+                "nfc",
+                "nfd",
+                "normalize",
+                "php",
+                "utf-8",
+                "utf8"
+            ],
+            "support": {
+                "issues": "https://github.com/fab2s/Utf8/issues",
+                "source": "https://github.com/fab2s/Utf8/tree/1.0.1"
+            },
+            "install-path": "../fab2s/utf8"
+        },
+        {
             "name": "nikic/php-parser",
             "version": "v5.0.0",
             "version_normalized": "5.0.0.0",

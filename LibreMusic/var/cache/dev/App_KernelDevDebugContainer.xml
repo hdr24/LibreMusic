@@ -1437,12 +1437,16 @@
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/vendor/symfony/form/Resources/translations/validators.en.xlf</argument>
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/vendor/symfony/security-core/Resources/translations/security.en.xlf</argument>
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.en.php</argument>
+            <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/translations/login/login.en.yaml</argument>
+            <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/translations/register/register.en.yaml</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/vendor/symfony/validator/Resources/translations/validators.es.xlf</argument>
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/vendor/symfony/form/Resources/translations/validators.es.xlf</argument>
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/vendor/symfony/security-core/Resources/translations/security.es.xlf</argument>
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.es.php</argument>
+            <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/translations/login/login.es.yaml</argument>
+            <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/translations/register/register.es.yaml</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/vendor/symfony/validator/Resources/translations/validators.et.xlf</argument>

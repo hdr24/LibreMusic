@@ -266,6 +266,24 @@ $catalogue = new MessageCatalogue('en', array (
     'autocomplete.no-more-results' => 'No more results',
     'autocomplete.loading-more-results' => 'Loading more results…',
   ),
+  'login' => 
+  array (
+    'username' => 'Username',
+    'password' => 'Password',
+    'sign-in' => 'Please, Log in',
+    'sign-button' => 'Log In',
+    'logged' => 'You are logged in as {user}, <a href="{logout}">Logout</a>',
+    'error' => 'Invalid credentials',
+  ),
+  'register' => 
+  array (
+    'register' => 'Register',
+    'username' => 'Username',
+    'email' => 'E-mail',
+    'password' => 'Password',
+    'terms' => 'I agree with the terms',
+    'reg-button' => 'Register',
+  ),
 ));
 
 

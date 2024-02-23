@@ -23,5 +23,6 @@ return array(
     'NumberFormatter' => $vendorDir . '/symfony/polyfill-intl-icu/Resources/stubs/NumberFormatter.php',
     'Override' => $vendorDir . '/symfony/polyfill-php83/Resources/stubs/Override.php',
     'SQLite3Exception' => $vendorDir . '/symfony/polyfill-php83/Resources/stubs/SQLite3Exception.php',
+    'fab2s\\Utf8\\Utf8' => $vendorDir . '/fab2s/utf8/src/Utf8.php',
     '©' => $vendorDir . '/symfony/cache/Traits/ValueWrapper.php',
 );
