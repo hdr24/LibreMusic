@@ -1,0 +1,6 @@
+username: Username
+password: Password
+sign-in: Please, Log in
+sign-button: Log In
+logged: You are logged in as {user}, <a href="{logout}">Logout</a>
+error: Invalid credentials

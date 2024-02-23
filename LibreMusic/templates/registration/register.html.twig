@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% trans_default_domain 'register' %}
 {% block title %}Register{% endblock %}
 
 {% block body %}
@@ -8,12 +8,19 @@
     {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.username) }}
+        {{ form_row(registrationForm.username, {
+            label: ('username'|trans)}
+        ) }}
+        {{ form_row(registrationForm.email, {
+            label: ('email'|trans)}
+            ) }}
         {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+            label: ('password'|trans)
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm.agreeTerms, {
+            label: ('terms'|trans)}
+            ) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn">{{'reg-button'|trans}}</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
