@@ -244,6 +244,20 @@
         <argument type="service" id=".service_locator.ZP92gqz.App\Controller\Admin\UserCrudController"/>
       </call>
     </service>
+    <service id="App\Controller\HomeController" class="App\Controller\HomeController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\HomeController"/>
+      </call>
+    </service>
+    <service id="App\Controller\NotFoundController" class="App\Controller\NotFoundController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\NotFoundController"/>
+      </call>
+    </service>
     <service id="App\Controller\RegistrationController" class="App\Controller\RegistrationController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -1437,7 +1451,9 @@
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/vendor/symfony/form/Resources/translations/validators.en.xlf</argument>
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/vendor/symfony/security-core/Resources/translations/security.en.xlf</argument>
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.en.php</argument>
+            <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/translations/home/home.en.yml</argument>
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/translations/login/login.en.yaml</argument>
+            <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/translations/notfound/notfound.en.yml</argument>
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/translations/register/register.en.yaml</argument>
           </argument>
           <argument key="es" type="collection">
@@ -1445,7 +1461,9 @@
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/vendor/symfony/form/Resources/translations/validators.es.xlf</argument>
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/vendor/symfony/security-core/Resources/translations/security.es.xlf</argument>
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.es.php</argument>
+            <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/translations/home/home.es.yml</argument>
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/translations/login/login.es.yaml</argument>
+            <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/translations/notfound/notfound.es.yml</argument>
             <argument>/home/hector/Documents/DAW/LibreMusic/LibreMusic/translations/register/register.es.yaml</argument>
           </argument>
           <argument key="et" type="collection">
@@ -4502,7 +4520,22 @@
         </service>
       </argument>
     </service>
-    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap"/>
+    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap">
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.M5TqzoK"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.FsQ6U.P"/>
+        <argument type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+    </service>
     <service id="security.context_listener" class="Symfony\Component\Security\Http\Firewall\ContextListener">
       <tag name="monolog.logger" channel="security"/>
       <argument type="service" id="security.untracked_token_storage"/>
@@ -5013,6 +5046,22 @@
         <argument key="security.firewall.map.context.main" type="service_closure" id="security.firewall.map.context.main"/>
       </argument>
     </service>
+    <service id=".security.request_matcher.N9zMkJw" class="Symfony\Component\HttpFoundation\RequestMatcher\PathRequestMatcher">
+      <argument>^/.*/admin$</argument>
+    </service>
+    <service id=".security.request_matcher.M5TqzoK" class="Symfony\Component\HttpFoundation\ChainRequestMatcher">
+      <argument type="collection">
+        <argument type="service" id=".security.request_matcher.N9zMkJw"/>
+      </argument>
+    </service>
+    <service id=".security.request_matcher.92MUXM4" class="Symfony\Component\HttpFoundation\RequestMatcher\PathRequestMatcher">
+      <argument>^/profile</argument>
+    </service>
+    <service id=".security.request_matcher.FsQ6U.P" class="Symfony\Component\HttpFoundation\ChainRequestMatcher">
+      <argument type="collection">
+        <argument type="service" id=".security.request_matcher.92MUXM4"/>
+      </argument>
+    </service>
     <service id="security.command.user_password_hash" class="Symfony\Component\PasswordHasher\Command\UserPasswordHashCommand">
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
@@ -5361,6 +5410,12 @@
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\NotFoundController" class="App\Controller\NotFoundController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NotFoundController" class="App\Controller\NotFoundController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\NotFoundController" class="App\Controller\NotFoundController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6393,6 +6448,18 @@
         <argument key="security.token_storage" type="service_closure" id="security.token_storage" on-invalid="ignore"/>
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
+    </service>
+    <service id=".service_locator.jUv.zyj.App\Controller\HomeController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\HomeController"/>
+      <argument>App\Controller\HomeController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jUv.zyj" method="withContext"/>
+    </service>
+    <service id=".service_locator.jUv.zyj.App\Controller\NotFoundController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\NotFoundController"/>
+      <argument>App\Controller\NotFoundController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jUv.zyj" method="withContext"/>
     </service>
     <service id=".service_locator.jUv.zyj.App\Controller\RegistrationController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\RegistrationController"/>

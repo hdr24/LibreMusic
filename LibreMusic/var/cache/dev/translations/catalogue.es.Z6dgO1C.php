@@ -266,6 +266,13 @@ $catalogue = new MessageCatalogue('es', array (
     'autocomplete.no-more-results' => 'No hay más resultados',
     'autocomplete.loading-more-results' => 'Cargando más resultados…',
   ),
+  'home' => 
+  array (
+    'existing_account' => '¿Ya está registrado?',
+    'no_account' => '¿Desea crear una nueva cuenta?',
+    'login' => 'Iniciar sesión',
+    'register' => 'Registrarse',
+  ),
   'login' => 
   array (
     'username' => 'Nombre de usuario',
@@ -274,6 +281,10 @@ $catalogue = new MessageCatalogue('es', array (
     'sign-button' => 'Iniciar sesión',
     'logged' => 'Ya estás logeado como {user}, <a href="{logout}">cerrar sesión</a>',
     'error' => 'Credenciales inválidas',
+  ),
+  'notfound' => 
+  array (
+    'not_found' => 'No se encuentra la página',
   ),
   'register' => 
   array (
@@ -550,6 +561,13 @@ $catalogueEn = new MessageCatalogue('en', array (
     'autocomplete.no-more-results' => 'No more results',
     'autocomplete.loading-more-results' => 'Loading more results…',
   ),
+  'home' => 
+  array (
+    'existing_account' => 'Already have an account?',
+    'no_account' => 'Wish to create a new account?',
+    'login' => 'Login',
+    'register' => 'Register',
+  ),
   'login' => 
   array (
     'username' => 'Username',
@@ -558,6 +576,10 @@ $catalogueEn = new MessageCatalogue('en', array (
     'sign-button' => 'Log In',
     'logged' => 'You are logged in as {user}, <a href="{logout}">Logout</a>',
     'error' => 'Invalid credentials',
+  ),
+  'notfound' => 
+  array (
+    'not_found' => 'Page not found',
   ),
   'register' => 
   array (

@@ -266,6 +266,13 @@ $catalogue = new MessageCatalogue('en', array (
     'autocomplete.no-more-results' => 'No more results',
     'autocomplete.loading-more-results' => 'Loading more results…',
   ),
+  'home' => 
+  array (
+    'existing_account' => 'Already have an account?',
+    'no_account' => 'Wish to create a new account?',
+    'login' => 'Login',
+    'register' => 'Register',
+  ),
   'login' => 
   array (
     'username' => 'Username',
@@ -274,6 +281,10 @@ $catalogue = new MessageCatalogue('en', array (
     'sign-button' => 'Log In',
     'logged' => 'You are logged in as {user}, <a href="{logout}">Logout</a>',
     'error' => 'Invalid credentials',
+  ),
+  'notfound' => 
+  array (
+    'not_found' => 'Page not found',
   ),
   'register' => 
   array (
