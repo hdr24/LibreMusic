@@ -8,6 +8,7 @@
 return [
     false, // $matchHost
     [ // $staticRoutes
+        '/app' => [[['_route' => 'app_app', '_controller' => 'App\\Controller\\AppController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_home_getlocale', '_controller' => 'App\\Controller\\HomeController::getLocale'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
     ],
