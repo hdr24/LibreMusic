@@ -22,6 +22,7 @@
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
       <parameter key="EasyAdminBundle">EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle</parameter>
       <parameter key="WebpackEncoreBundle">Symfony\WebpackEncoreBundle\WebpackEncoreBundle</parameter>
+      <parameter key="NelmioCorsBundle">Nelmio\CorsBundle\NelmioCorsBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -59,6 +60,10 @@
       <parameter key="WebpackEncoreBundle" type="collection">
         <parameter key="path">/home/hector/Documents/DAW/bacop/LibreMusic/LibreMusic/vendor/symfony/webpack-encore-bundle/src</parameter>
         <parameter key="namespace">Symfony\WebpackEncoreBundle</parameter>
+      </parameter>
+      <parameter key="NelmioCorsBundle" type="collection">
+        <parameter key="path">/home/hector/Documents/DAW/bacop/LibreMusic/LibreMusic/vendor/nelmio/cors-bundle</parameter>
+        <parameter key="namespace">Nelmio\CorsBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -213,6 +218,50 @@
       <parameter>main</parameter>
     </parameter>
     <parameter key="security.logout_uris" type="collection"/>
+    <parameter key="nelmio_cors.map" type="collection">
+      <parameter key="^/api/" type="collection">
+        <parameter key="allow_origin">true</parameter>
+        <parameter key="allow_headers">true</parameter>
+        <parameter key="allow_methods" type="collection">
+          <parameter>GET</parameter>
+          <parameter>POST</parameter>
+          <parameter>PUT</parameter>
+          <parameter>DELETE</parameter>
+          <parameter>OPTIONS</parameter>
+        </parameter>
+        <parameter key="max_age">3600</parameter>
+        <parameter key="skip_same_as_origin">true</parameter>
+      </parameter>
+    </parameter>
+    <parameter key="nelmio_cors.defaults" type="collection">
+      <parameter key="allow_origin" type="collection">
+        <parameter>%env(CORS_ALLOW_ORIGIN)%</parameter>
+      </parameter>
+      <parameter key="allow_credentials">false</parameter>
+      <parameter key="allow_headers" type="collection">
+        <parameter>content-type</parameter>
+        <parameter>authorization</parameter>
+      </parameter>
+      <parameter key="expose_headers" type="collection">
+        <parameter>*</parameter>
+      </parameter>
+      <parameter key="allow_methods" type="collection">
+        <parameter>GET</parameter>
+        <parameter>OPTIONS</parameter>
+        <parameter>POST</parameter>
+        <parameter>PUT</parameter>
+        <parameter>PATCH</parameter>
+        <parameter>DELETE</parameter>
+      </parameter>
+      <parameter key="max_age">3600</parameter>
+      <parameter key="hosts" type="collection"/>
+      <parameter key="origin_regex">true</parameter>
+      <parameter key="forced_allow_origin_value">null</parameter>
+      <parameter key="skip_same_as_origin">true</parameter>
+    </parameter>
+    <parameter key="nelmio_cors.cors_listener.class">Nelmio\CorsBundle\EventListener\CorsListener</parameter>
+    <parameter key="nelmio_cors.options_resolver.class">Nelmio\CorsBundle\Options\Resolver</parameter>
+    <parameter key="nelmio_cors.options_provider.config.class">Nelmio\CorsBundle\Options\ConfigProvider</parameter>
     <parameter key="console.command.ids" type="collection"/>
   </parameters>
   <services>
@@ -1760,6 +1809,7 @@
           <argument>/home/hector/Documents/DAW/bacop/LibreMusic/LibreMusic/vendor/symfony/maker-bundle/src/translations</argument>
           <argument>/home/hector/Documents/DAW/bacop/LibreMusic/LibreMusic/vendor/symfony/security-bundle/translations</argument>
           <argument>/home/hector/Documents/DAW/bacop/LibreMusic/LibreMusic/vendor/symfony/webpack-encore-bundle/src/translations</argument>
+          <argument>/home/hector/Documents/DAW/bacop/LibreMusic/LibreMusic/vendor/nelmio/cors-bundle/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
@@ -1776,6 +1826,7 @@
             <argument>vendor/symfony/maker-bundle/src/translations</argument>
             <argument>vendor/symfony/security-bundle/translations</argument>
             <argument>vendor/symfony/webpack-encore-bundle/src/translations</argument>
+            <argument>vendor/nelmio/cors-bundle/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -2159,6 +2210,30 @@
           <argument>onKernelException</argument>
         </argument>
         <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="nelmio_cors.cors_listener"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>250</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.response</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="nelmio_cors.cors_listener"/>
+          <argument>onKernelResponse</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.response</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="nelmio_cors.cacheable_response_vary_listener"/>
+          <argument>onResponse</argument>
+        </argument>
+        <argument>-10</argument>
       </call>
       <call method="addListener">
         <argument>kernel.response</argument>
@@ -5019,8 +5094,8 @@
       <call method="setOptions">
         <argument type="collection">
           <argument key="login_path">app_login</argument>
+          <argument key="default_target_path">app</argument>
           <argument key="always_use_default_target_path">false</argument>
-          <argument key="default_target_path">/</argument>
           <argument key="target_path_parameter">_target_path</argument>
           <argument key="use_referer">false</argument>
         </argument>
@@ -5527,6 +5602,27 @@
       <argument type="collection">
         <argument key="_default" type="service_closure" id="webpack_encore.entrypoint_lookup[_default]"/>
       </argument>
+    </service>
+    <service id="nelmio_cors.cors_listener" class="Nelmio\CorsBundle\EventListener\CorsListener">
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="250"/>
+      <tag name="kernel.event_listener" event="kernel.response" method="onKernelResponse" priority="0"/>
+      <tag name="container.hot_path"/>
+      <tag name="container.hot_path"/>
+      <argument type="service" id="nelmio_cors.options_resolver"/>
+    </service>
+    <service id="nelmio_cors.options_resolver" class="Nelmio\CorsBundle\Options\Resolver">
+      <argument type="collection">
+        <argument type="service" id="nelmio_cors.options_provider.config"/>
+      </argument>
+    </service>
+    <service id="nelmio_cors.options_provider.config" class="Nelmio\CorsBundle\Options\ConfigProvider">
+      <tag name="nelmio_cors.options_provider" priority="-1"/>
+      <argument>%nelmio_cors.map%</argument>
+      <argument>%nelmio_cors.defaults%</argument>
+    </service>
+    <service id="nelmio_cors.cacheable_response_vary_listener" class="Nelmio\CorsBundle\EventListener\CacheableResponseVaryListener">
+      <tag name="kernel.event_listener" event="kernel.response" method="onResponse" priority="-10"/>
+      <tag name="container.hot_path"/>
     </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\DashboardController" class="App\Controller\Admin\DashboardController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\DashboardController" class="App\Controller\Admin\DashboardController" autowire="true" abstract="true"/>
@@ -6365,10 +6461,10 @@
     <service id="EasyCorp\Bundle\EasyAdminBundle\Registry\DashboardControllerRegistry" class="EasyCorp\Bundle\EasyAdminBundle\Registry\DashboardControllerRegistry">
       <argument>/home/hector/Documents/DAW/bacop/LibreMusic/LibreMusic/var/cache/dev</argument>
       <argument type="collection">
-        <argument key="App\Controller\Admin\DashboardController" type="string">4771392</argument>
+        <argument key="App\Controller\Admin\DashboardController">b801e62</argument>
       </argument>
       <argument type="collection">
-        <argument key="4771392">App\Controller\Admin\DashboardController</argument>
+        <argument key="b801e62">App\Controller\Admin\DashboardController</argument>
       </argument>
     </service>
     <service id="EasyCorp\Bundle\EasyAdminBundle\Registry\CrudControllerRegistry" class="EasyCorp\Bundle\EasyAdminBundle\Registry\CrudControllerRegistry">
@@ -6377,16 +6473,16 @@
         <argument key="App\Controller\Admin\UserCrudController">App\Entity\User</argument>
       </argument>
       <argument type="collection">
-        <argument key="App\Controller\Admin\PlaylistCrudController">6961cf7</argument>
-        <argument key="App\Controller\Admin\UserCrudController">6dade2c</argument>
+        <argument key="App\Controller\Admin\PlaylistCrudController">6b4a3c2</argument>
+        <argument key="App\Controller\Admin\UserCrudController">9702ed8</argument>
       </argument>
       <argument type="collection">
         <argument key="App\Entity\Playlist">App\Controller\Admin\PlaylistCrudController</argument>
         <argument key="App\Entity\User">App\Controller\Admin\UserCrudController</argument>
       </argument>
       <argument type="collection">
-        <argument key="6961cf7">App\Controller\Admin\PlaylistCrudController</argument>
-        <argument key="6dade2c">App\Controller\Admin\UserCrudController</argument>
+        <argument key="6b4a3c2">App\Controller\Admin\PlaylistCrudController</argument>
+        <argument key="9702ed8">App\Controller\Admin\UserCrudController</argument>
       </argument>
     </service>
     <service id="logger" class="Symfony\Component\HttpKernel\Log\Logger">

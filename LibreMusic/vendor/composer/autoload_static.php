@@ -90,6 +90,10 @@ class ComposerStaticInit90f15d0df8433d284f9bf1b0f6f9c793
             'Psr\\Cache\\' => 10,
             'PhpParser\\' => 10,
         ),
+        'N' => 
+        array (
+            'Nelmio\\CorsBundle\\' => 18,
+        ),
         'E' => 
         array (
             'EasyCorp\\Bundle\\EasyAdminBundle\\' => 32,
@@ -358,6 +362,10 @@ class ComposerStaticInit90f15d0df8433d284f9bf1b0f6f9c793
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
+        ),
+        'Nelmio\\CorsBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nelmio/cors-bundle',
         ),
         'EasyCorp\\Bundle\\EasyAdminBundle\\' => 
         array (

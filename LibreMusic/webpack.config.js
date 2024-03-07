@@ -14,6 +14,18 @@ Encore
             loader: 'file-loader'
     })
 
+    
+    .enableSingleRuntimeChunk()
+    .disableSingleRuntimeChunk()
+    .enableSourceMaps(!Encore.isProduction())
+    .enableVersioning(Encore.isProduction())
+    .cleanupOutputBeforeBuild()
+    .enableBuildNotifications()
+    .enableSassLoader()
+    .enablePostCssLoader()
+    .enableVueLoader()
+    .enableReactPreset()
+
 
     // directory where compiled assets will be stored
     .setOutputPath('public/build/')
