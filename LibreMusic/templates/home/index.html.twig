@@ -1,13 +1,23 @@
 {% extends 'base.html.twig' %}
 {% trans_default_domain 'home' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}LibreMusic{% endblock %}
 
 {% block body %}
-<h1>LibreMusic</h1>
-<p>{{'existing_account'|trans}}</p>
-<a href="{{path('app_login')}}">Login</a>
-<p>{{'no_account'|trans}}</p>
-<a href="app_register">{{'register'|trans}}</a>\
-<img src='./build/mc.png'/>
+<div class="container bg-dark text-white p-2 mt-5">
+    <h1>LibreMusic</h1>
+    <img src='https://github.com/hdr24/LibreMusic/raw/main/images/icon.svg' width="30%" class="mb-3"/>
+    
+    <div class="row m-5">
+        <div class="col-6 pb-4">
+            <p>{{'existing_account'|trans}}</p>
+            <a href="{{path('app_login')}}" class="btn btn-success">Login</a>
+        </div>
+        <div class="col-6 pb-4">
+            <p>{{'no_account'|trans}}</p>
+            <a href="{{locale}}/register" class="btn btn-success">{{'register'|trans}}</a>
+           
+        </div>
+    </div>
+</div>
 {% endblock %}

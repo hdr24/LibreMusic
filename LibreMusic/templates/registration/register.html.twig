@@ -3,24 +3,36 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
+<div class="container text-white bg-dark mt-5 rounded p-4">
     <h1>Register</h1>
+    <div class="form-control p-3 mb-3 bg-dark text-white">
+        {{ form_errors(registrationForm) }}
 
-    {{ form_errors(registrationForm) }}
-
-    {{ form_start(registrationForm) }}
+        {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.username, {
-            label: ('username'|trans)}
+        label: ('username'|trans),
+        attr: {
+        class: 'form-control'
+    }}
         ) }}
         {{ form_row(registrationForm.email, {
-            label: ('email'|trans)}
-            ) }}
+        label: ('email'|trans),
+        attr: {
+        class: 'form-control'
+    }}
+        ) }}
         {{ form_row(registrationForm.plainPassword, {
-            label: ('password'|trans)
+        label: ('password'|trans),
+        attr: {
+        class: 'form-control'
+    }
         }) }}
         {{ form_row(registrationForm.agreeTerms, {
-            label: ('terms'|trans)}
-            ) }}
+        label: ('terms'|trans)}
+        ) }}
 
-        <button type="submit" class="btn">{{'reg-button'|trans}}</button>
-    {{ form_end(registrationForm) }}
+        <button type="submit" class="btn btn-success">{{'reg-button'|trans}}</button>
+        {{ form_end(registrationForm) }}
+    </div>
+</div>
 {% endblock %}

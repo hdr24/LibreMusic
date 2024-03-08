@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import '../styles/controls.css'
 import {
+  // needs refactoring
   IoPlayBackSharp,
   IoPlayForwardSharp,
   IoPlaySkipBackSharp,
@@ -14,17 +15,6 @@ import {
 const Controls = ({ audioRef, progressRef, duration, setTimeProgress, tracks, trackIndex, setTrackIndex, setCurrentTrack, next }) => {
 
 
-  
-  const previous = () => { 
-    if (trackIndex === 0) {
-      let lastTrackIndex = tracks.length - 1;
-      setTrackIndex(lastTrackIndex);
-      setCurrentTrack(tracks[lastTrackIndex]);
-    } else {
-      setTrackIndex((prev) => prev - 1);
-      setCurrentTrack(tracks[trackIndex - 1]);
-    }
-  }
   const [isPlaying, setIsPlaying] = useState(false);
   const togglePlayPause = () => {
     setIsPlaying((prev) => !prev);
@@ -44,6 +34,8 @@ const Controls = ({ audioRef, progressRef, duration, setTimeProgress, tracks, tr
     playAnimationRef.current = requestAnimationFrame(repeat);
   }, [audioRef, duration, progressRef, setTimeProgress]);
 
+
+  // With the use effect we can check if the audio is playing or not and play it or pause it
   useEffect(() => {
     if (isPlaying) {
       audioRef.current.play();
@@ -54,19 +46,19 @@ const Controls = ({ audioRef, progressRef, duration, setTimeProgress, tracks, tr
   }, [isPlaying, audioRef, repeat]);
 
   return (
-    <div className="controls-wrapper">
-      <div className="controls">
-        <button onClick={previous}>
+    <div className="controls-wrapper ">
+      <div className="controls w-100 d-flex align-content-center text-center">
+        {/* <button onClick={previous}>
           <IoPlaySkipBackSharp />
-        </button>
+        </button> */}
 
 
-        <button onClick={togglePlayPause}>
+        <button onClick={togglePlayPause} className='play btn btn-success'>
           {isPlaying ? <IoPauseSharp /> : <IoPlaySharp />}
         </button>
-        <button onClick={next}>
+        {/* <button onClick={next}>
           <IoPlaySkipForwardSharp />
-        </button>
+        </button> */}
       </div>
     </div>
   )

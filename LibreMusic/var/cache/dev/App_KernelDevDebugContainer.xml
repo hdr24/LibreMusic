@@ -3451,6 +3451,14 @@
       <argument type="collection"/>
       <argument>/home/hector/Documents/DAW/bacop/LibreMusic/LibreMusic</argument>
       <call method="addPath">
+        <argument>/home/hector/Documents/DAW/bacop/LibreMusic/LibreMusic/templates/bundles/TwigBundle</argument>
+        <argument>Twig</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/hector/Documents/DAW/bacop/LibreMusic/LibreMusic/templates/bundles/TwigBundle</argument>
+        <argument>!Twig</argument>
+      </call>
+      <call method="addPath">
         <argument>/home/hector/Documents/DAW/bacop/LibreMusic/LibreMusic/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
@@ -4659,7 +4667,7 @@
         <argument>null</argument>
       </call>
       <call method="add">
-        <argument type="service" id=".security.request_matcher.FsQ6U.P"/>
+        <argument type="service" id=".security.request_matcher.54dVnTI"/>
         <argument type="collection">
           <argument>ROLE_USER</argument>
         </argument>
@@ -5184,12 +5192,12 @@
         <argument type="service" id=".security.request_matcher.N9zMkJw"/>
       </argument>
     </service>
-    <service id=".security.request_matcher.92MUXM4" class="Symfony\Component\HttpFoundation\RequestMatcher\PathRequestMatcher">
-      <argument>^/profile</argument>
+    <service id=".security.request_matcher.GyrYjvp" class="Symfony\Component\HttpFoundation\RequestMatcher\PathRequestMatcher">
+      <argument>^/app</argument>
     </service>
-    <service id=".security.request_matcher.FsQ6U.P" class="Symfony\Component\HttpFoundation\ChainRequestMatcher">
+    <service id=".security.request_matcher.54dVnTI" class="Symfony\Component\HttpFoundation\ChainRequestMatcher">
       <argument type="collection">
-        <argument type="service" id=".security.request_matcher.92MUXM4"/>
+        <argument type="service" id=".security.request_matcher.GyrYjvp"/>
       </argument>
     </service>
     <service id="security.command.user_password_hash" class="Symfony\Component\PasswordHasher\Command\UserPasswordHashCommand">

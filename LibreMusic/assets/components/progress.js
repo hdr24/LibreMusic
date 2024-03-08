@@ -3,10 +3,14 @@ import '../styles/progress.css'
 
 
 const Progress = ({ progressRef, audioRef, timeProgress, duration }) => {
+  
+  // If we manually move the range slider the song currenTime will update 
   const handleProgressChange = () => {
     audioRef.current.currentTime = progressRef.current.value
     console.log(progressRef.current.value)
   }
+
+  // The ref gives us the time in seconds, we made a function to pass it to minutes and seconds
 
   const formatTime = (time) => {
     if (time && !isNaN(time)) {
@@ -22,10 +26,11 @@ const Progress = ({ progressRef, audioRef, timeProgress, duration }) => {
   };
 
   return (
-    <div className='progress'>
-      <span className='current'>{formatTime(timeProgress)}</span>
-      <input type='range' ref={progressRef} onChange={handleProgressChange} defaultValue='0' className='bar' />
-      <span className='length'>{formatTime(duration)}</span>
+    <div className='progress text-white d-flex content-align-between alignt-items-center w-100 mt-2'>
+      
+      <span className='current p-2'>{formatTime(timeProgress)}</span>
+      <input type='range' ref={progressRef} onChange={handleProgressChange} defaultValue='0' className='range p-2' />
+      <span className='length p-2'>{formatTime(duration)}</span>
     </div>
   );
 };

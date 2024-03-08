@@ -39,6 +39,7 @@ class UserCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             EmailField::new('email'),
             TextField::new('username'),
+            // The array field lets us add more than one role to the users
             ArrayField::new('roles')
         ];
 

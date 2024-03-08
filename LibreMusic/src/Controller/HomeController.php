@@ -8,11 +8,12 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class HomeController extends AbstractController
 {
+    // The locale lets us set the language of the page to use Twig translations
     #[Route('/{_locale}', name: 'app_home', requirements: [ '_locale' => 'en|fr|es'])]
-    public function index(): Response
+    public function index($_locale): Response
     {
         
-        return $this->render('home/index.html.twig');
+        return $this->render('home/index.html.twig', ['locale' => $_locale]);
     }
     #[Route('/')]
     public function getLocale(): Response
