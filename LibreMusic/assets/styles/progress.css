@@ -1,0 +1,16 @@
+.progress {
+  background-color: rgb(26, 29, 31);
+  font-size: 16px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  margin-bottom: 0;
+}
+.range {
+  width: 100%;
+  height: 20px;
+  border-radius: 5px;
+}
+span {
+  align-content: center;
+}
+

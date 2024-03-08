@@ -1,0 +1,16 @@
+.audio-player {
+    border-top: black 3px solid ;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+
+#current-time, #total-time {
+    margin-top: 10px;
+}
